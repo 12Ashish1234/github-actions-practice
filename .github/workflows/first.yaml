@@ -28,8 +28,9 @@ jobs:
             - name: Step two
               run: date
     job4:
-        name: Third job
+        name: Fourth job
         runs-on: ubuntu-24.04
+        needs: [job1, job2, job3]
         steps:
             - name: Step one
               uses: actions/checkout@v3
