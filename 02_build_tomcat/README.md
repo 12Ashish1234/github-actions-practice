@@ -51,4 +51,4 @@ jobs:
         cd ./tomcat
         ant
 ```
-test 2
+test 4
