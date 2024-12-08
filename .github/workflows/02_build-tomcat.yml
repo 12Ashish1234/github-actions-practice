@@ -22,21 +22,13 @@ jobs:
           java -version
 
       - name: Check out Apache Tomcat
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: apache/tomcat
           ref: master
           path: ./tomcat
           fetch-depth: 1
 
-      - name: Checkout code
-        run: git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +refs/heads/master*:refs/remotes/origin/master* +refs/tags/master*:refs/tags/master*
-        id: checkout
-        continue-on-error: true
-
-  install:
-    runs-on: ubuntu-latest
-    steps:
       - name: Setup Java 9
         uses: actions/setup-java@v1
         with:
