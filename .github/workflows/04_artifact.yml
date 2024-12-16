@@ -9,7 +9,7 @@ on:
       - "04_artifacts/**"
 
 env:
-  FILE_NAME: hello-server
+  FILE_NAME: ./04_artifacts/hello-server
 
 jobs:
   build:
