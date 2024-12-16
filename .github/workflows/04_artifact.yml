@@ -30,14 +30,14 @@ jobs:
       uses: actions/upload-artifact@v4.4.3
       with:
         name: linux
-        path: ./${{ env.FILE_NAME }}
+        path: ${{ env.FILE_NAME }}
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.4.3
     
       with:
         name: windows
-        path: ./${{ env.FILE_NAME }}.exe
+        path: ${{ env.FILE_NAME }}.exe
 
   test-linux:
     name: Test Linux
