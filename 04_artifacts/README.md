@@ -3,4 +3,4 @@
 - Build and upload binaries for windows and linux
 - Download and test binaries on both platforms
 
-test 09
+test 10

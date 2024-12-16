@@ -54,7 +54,7 @@ jobs:
         name: linux
 
     - name: Test ${{ env.FILE_NAME }}
-      run: source ./test.sh
+      run: source ./04-artifacts/test.sh
 
   test-windows:
     name: Test Windows
@@ -71,4 +71,4 @@ jobs:
         name: windows
         
     - name: Test ${{ env.FILE_NAME }}
-      run: windows/${{ env.FILE_NAME }}.exe
+      run: windows/hello-server.exe
