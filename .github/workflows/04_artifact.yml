@@ -71,4 +71,4 @@ jobs:
         name: windows
         
     - name: Test ${{ env.FILE_NAME }}
-      run: 04_artifacts/hello-server.exe
+      run: hello-server.exe
