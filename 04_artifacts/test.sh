@@ -1,4 +1,4 @@
-chmod +x ./04_artifacts/hello-server
+chmod +x ./hello-server
 
 ./linux/hello-server &
 
