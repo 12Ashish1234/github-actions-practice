@@ -71,4 +71,6 @@ jobs:
         name: windows
         
     - name: Test ${{ env.FILE_NAME }}
-      run: hello-server.exe
+      run: |
+        ls
+        hello-server.exe
