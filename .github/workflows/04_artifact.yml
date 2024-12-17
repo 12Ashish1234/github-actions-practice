@@ -1,0 +1,76 @@
+name: artifact
+
+on:
+  push:
+    paths:
+      - "04_artifacts/**"
+  pull_request:
+    paths:
+      - "04_artifacts/**"
+
+env:
+  FILE_NAME: ./04_artifacts/hello-server
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: Build ${{ env.FILE_NAME }} for ubuntu-latest
+      run: go build ${{ env.FILE_NAME }}.go
+
+    - name: Build ${{ env.FILE_NAME }} for windows-latest
+      run: GOOS=windows GOARCH=amd64 go build ${{ env.FILE_NAME }}.go
+      
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.4.3
+      with:
+        name: linux
+        path: hello-server
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.4.3
+    
+      with:
+        name: windows
+        path: hello-server.exe
+
+  test-linux:
+    name: Test Linux
+    runs-on: [ubuntu-latest]
+    needs: [build]
+    steps:
+
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: Download artifact
+      uses: actions/download-artifact@v4.1.8
+      with:
+        name: linux
+
+    - name: Test ${{ env.FILE_NAME }}
+      run: source ./04_artifacts/test.sh
+
+  test-windows:
+    name: Test Windows
+    runs-on: [windows-latest]
+    needs: [build]
+    steps:
+
+    - name: Check out code
+      uses: actions/checkout@v1
+
+    - name: Download artifact
+      uses: actions/download-artifact@v4.1.8
+      with:
+        name: windows
+        
+    - name: Test ${{ env.FILE_NAME }}
+      run: |
+        ls
+        start hello-server.exe
