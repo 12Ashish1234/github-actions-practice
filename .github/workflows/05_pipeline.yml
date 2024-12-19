@@ -43,4 +43,4 @@ jobs:
         with:
           context: ./05_pipeline/
           push: true
-          tags: python-test:gitactions-v0.1
+          tags: ashish21bd/python-test:gitactions-v0.1
