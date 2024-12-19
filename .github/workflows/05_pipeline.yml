@@ -20,8 +20,8 @@ jobs:
         run: pip install --quiet --requirement ./05_pipeline/requirements.txt
       - name: Lint code
         run: |
-          flake8 --ignore=E501,E231 *.py
-          pylint --disable=C0301 --disable=C0326 *.py
+          flake8 --ignore=E501,E231 ./05_pipeline/*.py
+          pylint --disable=C0301 --disable=C0326 ./05_pipeline/*.py
       - name: Run unit tests
         run: |
           cd 05_pipeline/
