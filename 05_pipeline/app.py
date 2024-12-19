@@ -8,7 +8,8 @@ from flask import Flask, jsonify, abort, make_response
 APP = Flask(__name__)
 
 # Load the data
-MASCOTS = json.load(open('data.json', 'r'))
+with open('data.json', 'r', encoding='utf-8') as file:
+    MASCOTS = json.load(file)
 
 
 @APP.route('/', methods=['GET'])
@@ -40,7 +41,7 @@ def not_found(error):
     """
     Function: not_found
     Input: The error
-    Returns: HTTP 404 with r
+    Returns: HTTP 404 with response
     """
     return make_response(jsonify({'error': str(error)}), 404)
 
