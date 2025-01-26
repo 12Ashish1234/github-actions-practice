@@ -54,9 +54,7 @@ jobs:
         name: linux
 
     - name: Test ${{ env.FILE_NAME }}
-      run: |
-        pwd
-        ls
+      run: source ./04_artifacts/test.sh
 
   test-windows:
     name: Test Windows
