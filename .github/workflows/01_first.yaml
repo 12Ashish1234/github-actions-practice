@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '01_first_yaml/**'
-  pull_request: 
+  pull_request:
     paths:
       - '01_first_yaml/**'
 
