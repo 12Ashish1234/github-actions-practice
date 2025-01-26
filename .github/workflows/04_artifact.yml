@@ -56,7 +56,7 @@ jobs:
     - name: Test ${{ env.FILE_NAME }}
       run: |
         ls
-        # source ./04_artifacts/test.sh
+        source ./04_artifacts/test.sh
 
   test-windows:
     name: Test Windows
