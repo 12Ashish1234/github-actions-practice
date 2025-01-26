@@ -1,4 +1,4 @@
-chmod +x ../hello-server
+chmod +x /home/runner/work/github-actions-practice/github-actions-practice/hello-server
 
 ./linux/hello-server &
 

@@ -56,7 +56,8 @@ jobs:
     - name: Test ${{ env.FILE_NAME }}
       run: |
         ls
-        # source ./04_artifacts/test.sh
+        chmod +x hello-server
+        ./hello-server
 
   test-windows:
     name: Test Windows
